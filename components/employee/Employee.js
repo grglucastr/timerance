@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "space-around",
-    borderColor: "red",
+    borderColor: "blue",
     borderWidth: 3,
     width: "100%",
     marginTop: 25,
