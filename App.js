@@ -1,14 +1,12 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
-import Employee from './components/employee';
+import Home from './components/home';
 
 export default class App extends React.Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Employee />
-      </View>
+      <Home />   
     );
   }
 }
