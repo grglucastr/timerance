@@ -8,10 +8,16 @@ import EmployeeDetail from '../employee-detail';
 const AppNavigator = createStackNavigator(
   {
     Home:Employee,
-    Detail: EmployeeDetail,
+    Detail: {
+      screen: EmployeeDetail,
+      navigationOptions:{
+        title: 'Employee Details',
+      },
+    },
+    /*Summary: {},*/
   },
   {
-    initialRouteName: 'Home',
+    initialRouteName: 'Detail',
     defaultNavigationOptions: {
       headerStyle: {
         backgroundColor: '#f4511e',
