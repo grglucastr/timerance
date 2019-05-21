@@ -1,5 +1,5 @@
 import React from 'react'
-import { Modal, View, Text, StyleSheet, ToastAndroid, Image } from 'react-native'
+import { Modal, View, Text, StyleSheet, ToastAndroid, Image, Alert } from 'react-native'
 import { TextInput, TouchableOpacity,  } from 'react-native-gesture-handler';
 import { appStyles } from '../../common';
 
@@ -15,6 +15,7 @@ class Employee extends React.Component{
   }
 
   onCloseModal = () => {
+    alert('pressed!');
     this.setState(state => ({
       ...state,
       modalVisible: false,    
@@ -22,7 +23,6 @@ class Employee extends React.Component{
   }
 
   onProceed = () => { 
-
     const {employeeID} = this.state;
     if(employeeID === '11179629'){
       return this.props.navigation.navigate('Detail', {employeeID});
@@ -42,7 +42,10 @@ class Employee extends React.Component{
 
         <Modal
           transparent={true}
-          visible={this.state.modalVisible}>
+          visible={this.state.modalVisible}
+          onRequestClose={() => {
+            Alert.alert('Modal has been closed.');
+          }}>
           <View 
             style={styles.modal}>            
             <View
@@ -50,8 +53,7 @@ class Employee extends React.Component{
 
               <Image 
                 style={{width: 100, height: 80}}
-                source={require('../../../img/card_nfc.png')}
-              />
+                source={require('../../../img/card_nfc.png')}/>
 
               <Text style={styles.modalText}>
                 Approach the badge near to the NFC Reader in 
@@ -59,9 +61,10 @@ class Employee extends React.Component{
               </Text>
 
               <TouchableOpacity
-                style={styles.buttonCancel}>
+                onPress={() => this.onCloseModal()}
+                style={appStyles.button}>
                 <Text
-                  style={styles.buttonCancelText}>
+                  style={appStyles.buttonCancelText}>
                   Cancel
                 </Text>
               </TouchableOpacity>
@@ -131,16 +134,6 @@ const styles = StyleSheet.create({
     textAlign:'center',
     color: 'black',
   },
-
-  buttonCancel:{
-    marginTop: 20,
-    marginBottom: 40,
-  },
-
-  buttonCancelText:{
-    color: '#c0392b',
-  },
-
 
 });
 

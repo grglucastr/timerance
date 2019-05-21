@@ -24,6 +24,11 @@ const styles = StyleSheet.create({
     shadowOpacity: 1,
   },
 
+  buttonCancelText:{
+    color: '#c0392b',
+    fontWeight: 'bold',
+  },
+
   roundedImage:{
     width: 80,
     height: 80,
