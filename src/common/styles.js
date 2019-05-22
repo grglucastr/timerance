@@ -27,13 +27,39 @@ const styles = StyleSheet.create({
   buttonCancelText:{
     color: '#c0392b',
     fontWeight: 'bold',
+    textAlign: 'center',
   },
 
   roundedImage:{
     width: 80,
     height: 80,
     borderRadius: 40,
-  }
+  },
+
+  modal:{
+    flex: 1,
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+
+  modalContentContainer:{
+    width: 300,
+    height: 250,
+    backgroundColor: '#f5f6fa',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 20,
+    borderRadius: 10,
+  },
+  
+  modalText:{
+    fontSize: 16,
+    lineHeight:25,
+    textAlign:'center',
+    color: 'black',
+  },
 
 });
 export default styles;
