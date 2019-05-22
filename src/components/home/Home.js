@@ -4,6 +4,7 @@ import {
 
 import Employee from '../employee';
 import EmployeeDetail from '../employee-detail';
+import Timer from '../timer';
 
 const AppNavigator = createStackNavigator(
   {
@@ -14,6 +15,7 @@ const AppNavigator = createStackNavigator(
         title: 'Employee Details',
       },
     },
+    Timer: Timer,
     /*Summary: {},*/
   },
   {

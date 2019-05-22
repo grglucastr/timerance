@@ -28,7 +28,8 @@ class EmployeeDetail extends React.Component{
           </View>
         </View>
 
-        <TouchableOpacity style={appStyles.button} >
+        <TouchableOpacity style={appStyles.button}
+                          onPress={() => this.props.navigation.navigate('Timer')}>
           <Text style={appStyles.buttonText}>
             Start
           </Text>
