@@ -5,6 +5,7 @@ import {
 import Employee from '../employee';
 import EmployeeDetail from '../employee-detail';
 import Timer from '../timer';
+import Stopwatch from '../stopwatch';
 
 const AppNavigator = createStackNavigator(
   {
@@ -16,10 +17,11 @@ const AppNavigator = createStackNavigator(
       },
     },
     Timer: Timer,
+    Stopwatch: Stopwatch,
     /*Summary: {},*/
   },
   {
-    initialRouteName: 'Home',
+    initialRouteName: 'Stopwatch',
     defaultNavigationOptions: {
       headerStyle: {
         backgroundColor: '#f4511e',
