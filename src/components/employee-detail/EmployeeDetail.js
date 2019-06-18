@@ -29,7 +29,7 @@ class EmployeeDetail extends React.Component{
         </View>
 
         <TouchableOpacity style={appStyles.button}
-                          onPress={() => this.props.navigation.navigate('Timer')}>
+                          onPress={() => this.props.navigation.navigate('Stopwatch')}>
           <Text style={appStyles.buttonText}>
             Start
           </Text>
