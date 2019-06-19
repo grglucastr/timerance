@@ -61,5 +61,11 @@ const styles = StyleSheet.create({
     color: 'black',
   },
 
+  timerText: {
+    fontSize: 65,
+    textAlign: 'center',
+    marginTop:10,
+  },
+
 });
 export default styles;
