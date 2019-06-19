@@ -8,6 +8,7 @@ class Stopwatch extends React.Component{
   state = { 
     running: false,
     runningTime: 0,
+    limitTime: 3,
     laps: [],
   }
 
@@ -60,7 +61,17 @@ class Stopwatch extends React.Component{
   }
 
   resetTimer = () => {
+    const proceed = window.confirm('All the data will be lost! Are you sure?');
+    if(proceed){
 
+      this.setState({ 
+        running: false,
+        runningTime: 0,
+        limitTime: 3,
+        laps: [],
+      });
+
+    }
   }
 
   handleReset = () => {
@@ -80,10 +91,9 @@ class Stopwatch extends React.Component{
         
         <Text style={appStyles.timerText}>{ runningTime }</Text>
         
-        <Button clickAction={this.handleClick}>
+        <Button clickAction={this.handleClick} style={{width:100}}>
           { running ? 'Stop' : 'Start' }
         </Button>
-
 
         <View>
           <Text>Laps:</Text>
@@ -92,7 +102,11 @@ class Stopwatch extends React.Component{
               return <Text key={lap}>{lap}</Text>
             })
           }
+        </View>
 
+        <View style={{flexDirection:'row', justifyContent:'space-around'}}>
+          <Button clickAction={this.resetTimer} >Restart</Button>
+          <Button>Save</Button>
         </View>
 
         
