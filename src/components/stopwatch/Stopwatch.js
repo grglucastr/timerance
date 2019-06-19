@@ -33,7 +33,10 @@ class Stopwatch extends React.Component{
     this.setState(state => {
       const startDate = new Date();
       this.timer = setInterval(() => {
-        this.setState({runningTime: new Date() - startDate});
+        this.setState( state => ({
+          ...state,
+          runningTime: new Date() - startDate
+        }));
       });
       return { ...state, running: true, }
     });
@@ -45,15 +48,11 @@ class Stopwatch extends React.Component{
     this.setState(state => ({
       ...state,
       laps: [...state.laps, runningTime],
+      running: false,
       runningTime: 0,
     }));
 
-    clearInterval(this.timer);
-    this.startTimer();
-
-    console.log('laps', this.state.laps);
-    
-    
+    clearInterval(this.timer);    
   }
 
   stopTimer = () => {
@@ -69,26 +68,30 @@ class Stopwatch extends React.Component{
   }
 
   componentWillUnmount(){
-    
+    clearInterval(this.timer);
   }
 
 
   render(){
-    const { running, runningTime, laps } = this.state;
+    const { running, runningTime} = this.state;
     
     return(
       <View>
         
-        <Text>{ runningTime }</Text>
-
+        <Text style={appStyles.timerText}>{ runningTime }</Text>
+        
         <Button clickAction={this.handleClick}>
-          { running ? 'Lap' : 'Start' }
+          { running ? 'Stop' : 'Start' }
         </Button>
 
 
         <View>
           <Text>Laps:</Text>
-          {laps.map(({lap}) => <Text key={lap} >{lap}</Text>)}
+          {
+            this.state.laps.map(lap => {
+              return <Text key={lap}>{lap}</Text>
+            })
+          }
 
         </View>
 
