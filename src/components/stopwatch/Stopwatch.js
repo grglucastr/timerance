@@ -1,78 +1,98 @@
 import React from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 
-import {appStyles} from '../../common'
+import {appStyles, Button} from '../../common'
 
 class Stopwatch extends React.Component{
 
-  state ={
-    status: false,
-    minute:0,
-    second:0,
-    milliseconds:0,
+  state = { 
+    running: false,
     runningTime: 0,
+    laps: [],
   }
 
   handleClick = () => {
+  
+    if(!this.state.running){
+      this.startTimer();
+      return ;
+    }
+
+    this.trackLaps();
+    
+    /*
+    stopTimer();
+    resetTimer();
+    */
+
+    
+
+  }
+
+  startTimer = () => {
     this.setState(state => {
-      if(state.status){
-        clearInterval(this.timer);
-      }else{
-        let startTime = Date.now() - state.runningTime;
-        this.timer = setInterval(() => {
-
-          let runningTime = Date.now() - startTime;
-          let second = runningTime / 1000;
-          let minute = this.state.minute;
-
-          if(second >= 60){
-            startTime =  Date.now() - state.runningTime;
-            minute++;
-          }
-
-          this.setState(currentState => ({
-            ...currentState,
-            runningTime,
-            second,
-            minute,
-          }));
-          
-        });
-      }
-      return { status: !state.status };
+      const startDate = new Date();
+      this.timer = setInterval(() => {
+        this.setState({runningTime: new Date() - startDate});
+      });
+      return { ...state, running: true, }
     });
   }
 
-  handleReset = () => {
+  trackLaps = () => {
+    
+    const { runningTime } = this.state;
+    this.setState(state => ({
+      ...state,
+      laps: [...state.laps, runningTime],
+      runningTime: 0,
+    }));
+
     clearInterval(this.timer);
-    this.setState({ runningTime: 0, running: false });
+    this.startTimer();
+
+    console.log('laps', this.state.laps);
+    
+    
+  }
+
+  stopTimer = () => {
+
+  }
+
+  resetTimer = () => {
+
+  }
+
+  handleReset = () => {
+    clearInterval(this.timer);  
   }
 
   componentWillUnmount(){
-    clearInterval(this.timer);
+    
   }
 
 
   render(){
-    const { status, runningTime, second, minute } = this.state;
+    const { running, runningTime, laps } = this.state;
     
     return(
       <View>
-        <Text>{minute}:{second}</Text>
         
-        <TouchableOpacity
-          onPress={this.handleClick}
-          style={appStyles.button}>
-          <Text style={appStyles.buttonText}>
-            {status ? 'Stop' : 'Start'}
-          </Text>
-        </TouchableOpacity>
+        <Text>{ runningTime }</Text>
 
-        <TouchableOpacity 
-          onPress={this.handleReset}
-          style={appStyles.button}>
-          <Text style={appStyles.buttonText}>Reset</Text>
-        </TouchableOpacity>
+        <Button clickAction={this.handleClick}>
+          { running ? 'Lap' : 'Start' }
+        </Button>
+
+
+        <View>
+          <Text>Laps:</Text>
+          {laps.map(({lap}) => <Text key={lap} >{lap}</Text>)}
+
+        </View>
+
+        
       </View>
     )
   }
