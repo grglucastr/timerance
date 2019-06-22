@@ -29,6 +29,18 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
 
+  buttonDisabled:{
+    borderRadius:3,
+    padding: 10,
+    marginTop:25,
+    alignSelf: 'center',
+    backgroundColor: '#eee',
+  },
+
+  buttonDisabledText:{
+    color:'#bebebe'
+  },
+
   roundedImage:{
     width: 80,
     height: 80,
