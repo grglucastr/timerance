@@ -6,7 +6,7 @@ from 'react-native'
 import ModalNFC  from '../modal-nfc'
 import { appStyles } from '../../common';
 
-class Employee extends React.Component{
+class EmployeeIdentification extends React.Component{
 
   state = {
     employeeID: "",
@@ -57,6 +57,7 @@ class Employee extends React.Component{
             placeholder={`Enter employee's ID number`}
             value={this.state.employeeID}
             onChangeText={(employeeID) => this.setState({employeeID})}
+            onSubmitEditing={this.onProceed}
             style={appStyles.input} />
         
           <TouchableOpacity 
@@ -87,4 +88,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Employee
+export default EmployeeIdentification

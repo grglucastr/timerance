@@ -2,14 +2,14 @@ import {
   createStackNavigator,
   createAppContainer } from 'react-navigation';
 
-import Employee from '../employee';
+import EmployeeIdentification from '../employee-identification';
 import EmployeeDetail from '../employee-detail';
 import Timer from '../timer';
 import Stopwatch from '../stopwatch';
 
 const AppNavigator = createStackNavigator(
   {
-    Home:Employee,
+    Home:EmployeeIdentification,
     Detail: {
       screen: EmployeeDetail,
       navigationOptions:{
@@ -21,7 +21,7 @@ const AppNavigator = createStackNavigator(
     /*Summary: {},*/
   },
   {
-    initialRouteName: 'Stopwatch',
+    initialRouteName: 'Home',
     defaultNavigationOptions: {
       headerStyle: {
         backgroundColor: '#f4511e',

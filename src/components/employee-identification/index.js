@@ -1,0 +1,2 @@
+import EmployeeIdentification from './EmployeeIdentification'
+export default EmployeeIdentification
