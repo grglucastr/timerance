@@ -31,8 +31,8 @@ class EmployeeDetail extends React.Component{
           </View>
         </View>
 
-        <View style={[styles.statics]}> 
-          <Text style={styles['statics__avg']}>Avg: 8.633 secs.</Text>
+        <View style={styles['statics']}> 
+          <Text style={styles['statics__avg']}>Average: 8.633 secs.</Text>
           <Text style={styles['statics__lastTest']}>Last Test: 2019-02-04</Text>
         </View>
 
