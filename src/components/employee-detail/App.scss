@@ -19,7 +19,6 @@ $color-white: #fff;
   background-color: $color-white;
   box-shadow: 10px 5px 5px black;
   
-  margin-top: 1rem;
   margin-left: 1rem;
   margin-right: 1rem;
 }
@@ -27,6 +26,8 @@ $color-white: #fff;
 .employee{
   flex-direction: row;
   align-content: center;
+
+  margin-top: 1rem;
   
   &__infoDetails{
     margin-left: .5rem;
@@ -41,7 +42,8 @@ $color-white: #fff;
 .statics{
   flex-direction: row;
   justify-content: space-between;
-  //background-image: linear-gradient(#e66465, #9198e5);
+
+  margin-top: 1rem;
 
   &__avg, &__lastTest{
     color: $color-grey-dark-1;
@@ -55,5 +57,15 @@ $color-white: #fff;
   text-transform: uppercase;
   font-size: 1.2rem; 
   margin: 1rem; 
+  margin-bottom: 1.4px;
 }
 
+.tests{
+  flex: 1; 
+  margin-left: 1rem;
+  margin-right: 1rem;
+  background-color: $color-white;
+
+  padding: .2rem;
+
+}

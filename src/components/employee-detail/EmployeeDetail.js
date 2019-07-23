@@ -2,6 +2,7 @@ import React from 'react'
 import { View, Text, Image, StyleSheet } from 'react-native'
 import { Button, appStyles } from '../../common';
 
+import Tests from '../tests';
 
 import styles from './App.scss';
 
@@ -38,6 +39,13 @@ class EmployeeDetail extends React.Component{
         <Text style={styles.header1}>
           Time Tracking History
         </Text>
+
+        <View style={[styles.tests]}>
+          <Tests screenProps={{ rootNav: this.props.navigation }} />
+        </View>
+
+        
+        
 
         <Button clickAction={() => this.props.navigation.navigate('Stopwatch')}>
           Start
