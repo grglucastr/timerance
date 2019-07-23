@@ -18,10 +18,9 @@ const AppNavigator = createStackNavigator(
     },
     Timer: Timer,
     Stopwatch: Stopwatch,
-    /*Summary: {},*/
   },
   {
-    initialRouteName: 'Home',
+    initialRouteName: 'Detail',
     defaultNavigationOptions: {
       headerStyle: {
         backgroundColor: '#f4511e',
