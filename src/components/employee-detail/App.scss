@@ -1,0 +1,49 @@
+$color-white-flat: #ecf0f1;
+$color-grey-light-1: #bdc3c7;
+
+$color-black: #000;
+$color-white: #fff;
+
+.container{
+  flex:1;
+  background-color: $color-white-flat;
+}
+
+.employee{
+
+  flex-direction: row;
+  align-content: center;
+  padding: 1rem;
+  margin: 1rem;
+
+  border-radius: 5px;
+  background-color: $color-white;
+  box-shadow: 10px 5px 5px black;
+
+
+  &__infoDetails{
+    margin-left: .5rem;
+    margin-top: .5rem;
+
+    &__text{
+      color: $color-black;
+    }
+  }
+}
+
+.statics{
+
+  flex-direction: row;
+  justify-content: space-between;
+  border-radius: 5px;
+  
+  padding: 1rem;
+  margin: .1rem 1rem;
+  background-image: linear-gradient(#e66465, #9198e5);
+
+  &__avg, &__lastTest{
+    color: $color-grey-light-1;
+    font-weight: bold;
+  }
+
+}
