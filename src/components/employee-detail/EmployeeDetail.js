@@ -16,9 +16,8 @@ class EmployeeDetail extends React.Component{
    
     return(
       <View style={styles['container']}>
-
-        <View style={styles['employee']}>
-          <View styles={styles['employee__image']}>
+        <View style={[styles.employee, styles.round]}>
+          <View styles={styles.employee__image}> 
             <Image  
               style={appStyles.roundedImage}
               source={require('../../../img/employee.jpeg')} />
@@ -28,10 +27,10 @@ class EmployeeDetail extends React.Component{
             <Text style={styles['employee__infoDetails__text']}>George Bentes</Text>
             <Text style={styles['employee__infoDetails__text']}>{ employeeID }</Text>
             <Text style={styles['employee__infoDetails__text']}>{ department }</Text>
-          </View>
+          </View> 
         </View>
 
-        <View style={styles['statics']}> 
+        <View style={[styles.statics, styles.round]}> 
           <Text style={styles['statics__avg']}>Average: 8.633 secs.</Text>
           <Text style={styles['statics__lastTest']}>Last Test: 2019-02-04</Text>
         </View>
